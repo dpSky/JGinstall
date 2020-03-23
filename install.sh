@@ -47,4 +47,4 @@ systemctl enable vvlink
 systemctl start vvlink
 echo '部署完成'
 sleep 3
-systemctl status v2ray
+systemctl status vvlink
