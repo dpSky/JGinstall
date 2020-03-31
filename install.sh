@@ -15,6 +15,8 @@ nodeId=$3
 localPort=$4
 license=$5
 
+systemctl stop firewalld
+systemctl disable firewalld
 systemctl stop v2ray.service
 echo '结束进程'
 sleep 3
