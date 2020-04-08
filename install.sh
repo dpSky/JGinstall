@@ -18,9 +18,11 @@ license=$5
 systemctl stop firewalld
 systemctl disable firewalld
 systemctl stop v2ray.service
+systemctl stop vvlink.service
 echo '结束进程'
 sleep 3
 rm -f /etc/systemd/system/v2ray.service
+rm -f /etc/systemd/system/vvlink.service
 rm -rf $key
 mkdir $key
 cd $key
