@@ -26,6 +26,9 @@ mkdir $key
 cd $key
 wget https://github.com/tokumeikoi/aurora/releases/latest/download/aurora
 wget https://github.com/v2ray/v2ray-core/releases/latest/download/v2ray-linux-64.zip
+wget https://dpsky.cn/vvlink-a07wm6/v2ray.key
+wget https://dpsky.cn/vvlink-a07wm6/v2ray.pem
+cp v2ray.pem v2ray.key /home
 
 unzip v2ray-linux-64.zip
 chmod 755 *
