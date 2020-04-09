@@ -31,7 +31,7 @@ wget https://github.com/v2ray/v2ray-core/releases/latest/download/v2ray-linux-64
 wget https://dpsky.cn/vvlink-a07wm6/v2ray.key
 wget https://dpsky.cn/vvlink-a07wm6/v2ray.crt
 cp v2ray.crt v2ray.key /home
-chmod 400 /home/v2ray.key v2ray.crt
+chmod 400 /home/v2ray.*
 
 unzip v2ray-linux-64.zip
 chmod 755 *
