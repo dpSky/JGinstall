@@ -30,8 +30,10 @@ wget https://github.com/tokumeikoi/aurora/releases/latest/download/aurora
 wget https://github.com/v2ray/v2ray-core/releases/latest/download/v2ray-linux-64.zip
 wget https://dpsky.cn/vvlink-a07wm6/v2ray.key
 wget https://dpsky.cn/vvlink-a07wm6/v2ray.crt
-cp v2ray.crt v2ray.key /home
-chmod 400 /home/v2ray.*
+mkdir /root/.cert
+cp v2ray.crt /root/.cert/server.crt
+cp v2ray.key /root/.cert/server.key
+chmod 400 /root/.cert/server.*
 
 unzip v2ray-linux-64.zip
 chmod 755 *
