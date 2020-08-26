@@ -19,6 +19,7 @@ systemctl stop firewalld
 systemctl disable firewalld
 systemctl stop v2ray.service
 systemctl stop vvlink.service
+systemctl stop vvlink-v2.service
 echo '结束进程'
 sleep 3
 rm -f /etc/systemd/system/v2ray.service
@@ -37,15 +38,15 @@ chmod 400 /root/.cert/server.*
 
 unzip v2ray-linux-64.zip
 chmod 755 *
-cat << EOF >> /etc/systemd/system/vvlink.service
+cat << EOF >> /etc/systemd/system/vvlink-v2.service
 [Unit]
-Description=vvLink Service
+Description=vvLink-v2 Service
 After=network.target
 Wants=network.target
 
 [Service]
 Type=simple
-PIDFile=/run/vvlink.pid
+PIDFile=/run/vvlink-v2.pid
 ExecStart=/root/$key/aurora -api=$api -token=$key -node=$nodeId -localport=$localPort -license=$license
 Restart=on-failure
 
@@ -53,8 +54,8 @@ Restart=on-failure
 WantedBy=multi-user.target
 EOF
 systemctl daemon-reload
-systemctl enable vvlink
-systemctl start vvlink
+systemctl enable vvlink-v2
+systemctl start vvlink-v2
 echo '部署完成'
 sleep 3
-systemctl status vvlink
+systemctl status vvlink-v2
