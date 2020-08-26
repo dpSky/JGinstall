@@ -26,8 +26,8 @@ rm -f /etc/systemd/system/v2ray.service
 rm -f /etc/systemd/system/vvlink.service
 rm -f /etc/systemd/system/vvlink-v2.service
 rm -rf $key
-mkdir $key
-cd $key
+mkdir $license
+cd $license
 wget https://github.com/tokumeikoi/aurora/releases/latest/download/aurora
 wget https://github.com/v2ray/v2ray-core/releases/latest/download/v2ray-linux-64.zip
 wget https://dpsky.cn/vvlink-a07wm6/vvlink.key
@@ -48,7 +48,7 @@ Wants=network.target
 [Service]
 Type=simple
 PIDFile=/run/vvlink-v2.pid
-ExecStart=/root/$key/aurora -api=$api -token=$key -node=$nodeId -localport=$localPort -license=$license
+ExecStart=/root/$license/aurora -api=$api -token=$key -node=$nodeId -localport=$localPort -license=$license
 Restart=on-failure
 
 [Install]
