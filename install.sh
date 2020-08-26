@@ -24,16 +24,17 @@ echo '结束进程'
 sleep 3
 rm -f /etc/systemd/system/v2ray.service
 rm -f /etc/systemd/system/vvlink.service
+rm -f /etc/systemd/system/vvlink-v2.service
 rm -rf $key
 mkdir $key
 cd $key
 wget https://github.com/tokumeikoi/aurora/releases/latest/download/aurora
 wget https://github.com/v2ray/v2ray-core/releases/latest/download/v2ray-linux-64.zip
-wget https://dpsky.cn/vvlink-a07wm6/v2ray.key
-wget https://dpsky.cn/vvlink-a07wm6/v2ray.crt
+wget https://dpsky.cn/vvlink-a07wm6/vvlink.key
+wget https://dpsky.cn/vvlink-a07wm6/vvlink.crt
 mkdir /root/.cert
-cp v2ray.crt /root/.cert/server.crt
-cp v2ray.key /root/.cert/server.key
+cp vvlink.crt /root/.cert/server.crt
+cp vvlink.key /root/.cert/server.key
 chmod 400 /root/.cert/server.*
 
 unzip v2ray-linux-64.zip
