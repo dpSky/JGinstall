@@ -73,11 +73,15 @@ fi
 cat << EOF >> /etc/systemd/system/vvlink-v2.service
 [Unit]
 Description=vvLink-v2 Service
-After=network.target
+After=network.target nss-lookup.target
 Wants=network.target
-[Service]
 
+[Service]
 Type=simple
+User=nobody
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+NoNewPrivileges=true
 PIDFile=/run/vvlink-v2.pid
 ExecStart=/root/$folder/aurora -api=$api -token=$key -node=$nodeId -localport=$localPort -license=$license -syncInterval=$syncInterval > aurora.log 2>&1 &
 Restart=on-failure
