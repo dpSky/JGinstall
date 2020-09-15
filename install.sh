@@ -78,10 +78,6 @@ Wants=network.target
 
 [Service]
 Type=simple
-User=nobody
-CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
-AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
-NoNewPrivileges=true
 PIDFile=/run/vvlink-v2.pid
 ExecStart=`pwd`/aurora -api=$api -token=$key -node=$nodeId -localport=$localPort -license=$license -syncInterval=$syncInterval > aurora.log 2>&1 &
 Restart=on-failure
@@ -90,8 +86,8 @@ Restart=on-failure
 WantedBy=multi-user.target
 EOF
 
-systemctl enable vvlink-v2
+systemctl enable vvlink-v2.service
 systemctl daemon-reload
 echo '部署完成'
 sleep 3
-systemctl status vvlink-v2
+systemctl status vvlink-v2.service
