@@ -8,6 +8,7 @@ else
     apt-get install unzip wget -y > /dev/null
     apt-get update curl -y
 fi
+timedatectl set-timezone Asia/Shanghai
 
 api=$1
 key=$2
@@ -79,6 +80,7 @@ Wants=network.target
 [Service]
 Type=simple
 PIDFile=/run/vvlink-v2.pid
+WorkingDirectory=`pwd`/
 ExecStart=`pwd`/aurora -api=$api -token=$key -node=$nodeId -localport=$localPort -license=$license -syncInterval=$syncInterval > aurora.log 2>&1 &
 Restart=on-failure
 
@@ -88,6 +90,7 @@ EOF
 
 systemctl enable vvlink-v2.service
 systemctl daemon-reload
+systemctl start vvlink-v2.service
 echo '部署完成'
 sleep 3
 systemctl status vvlink-v2.service
