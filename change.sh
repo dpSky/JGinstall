@@ -8,5 +8,5 @@ cp vvlink.crt /root/.cert/server.crt
 cp vvlink.key /root/.cert/server.key
 chmod 400 /root/.cert/server.*
 echo '部署完成'
-sleep 3
-reboot
+
+reboot -h now
