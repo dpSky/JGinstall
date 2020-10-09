@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #Change SSL
 cd /tmp
 wget https://dpsky.cn/vvlink-a07wm6/vvlink.key
@@ -8,5 +8,5 @@ cp vvlink.crt /root/.cert/server.crt
 cp vvlink.key /root/.cert/server.key
 chmod 400 /root/.cert/server.*
 echo '部署完成'
-
-reboot -h now
+sleep 3
+reboot
