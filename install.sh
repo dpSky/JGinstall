@@ -53,7 +53,7 @@ cp vvlink.key /root/.cert/server.key
 chmod 400 /root/.cert/server.*
 echo '证书部署成功'
 wget https://github.com/tokumeikoi/aurora/releases/latest/download/aurora
-wget https://github.com/v2ray/v2ray-core/releases/latest/download/v2ray-linux-64.zip
+wget https://github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip
 
 unzip v2ray-linux-64.zip
 chmod 755 *
