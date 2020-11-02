@@ -13,8 +13,7 @@ timedatectl set-timezone Asia/Shanghai
 api=$1
 key=$2
 nodeId=$3
-localPort=$4
-license=$5
+license=$4
 folder=$key-v2
 if [[ "$6" -ne "" ]]
     then
@@ -59,7 +58,7 @@ wget https://github.com/v2ray/v2ray-core/releases/latest/download/v2ray-linux-64
 unzip v2ray-linux-64.zip
 chmod 755 *
 #run server
-nohup `pwd`/aurora -api=$api -token=$key -node=$nodeId -localport=$localPort -license=$license -syncInterval=$syncInterval > aurora.log 2>&1 &
+nohup `pwd`/aurora -api=$api -token=$key -node=$nodeId -license=$license -syncInterval=$syncInterval > aurora.log 2>&1 &
 echo '启动成功'
 sleep 3
 cat aurora.log
@@ -81,7 +80,7 @@ Wants=network.target
 Type=simple
 PIDFile=/run/vvlink-v2.pid
 WorkingDirectory=`pwd`/
-ExecStart=`pwd`/aurora -api=$api -token=$key -node=$nodeId -localport=$localPort -license=$license -syncInterval=$syncInterval > aurora.log 2>&1 &
+ExecStart=`pwd`/aurora -api=$api -token=$key -node=$nodeId -license=$license -syncInterval=$syncInterval > aurora.log 2>&1 &
 Restart=on-failure
 
 [Install]
